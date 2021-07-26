@@ -28,6 +28,6 @@ public class Validator {
 
     boolean atleastOneSpecialCharacter (String string) {
         //negation of regex
-        return string.matches("/^[^a-zA-Z0-9]+$/") ? true : false;
+        return string.matches("[^a-zA-Z0-9]+$") ? true : false;
     };
 }
