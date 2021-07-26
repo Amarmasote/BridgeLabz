@@ -105,6 +105,7 @@ public class AddressService {
 
     public void printContactBookToConsole(){
         addressBook.values().stream().forEach(consumer);
+        //addressBook.values().stream().forEach(System.out::print);
     }
 
     // Consumer to print address to console
