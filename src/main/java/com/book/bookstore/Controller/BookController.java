@@ -7,6 +7,8 @@ import com.book.bookstore.models.Book;
 import com.book.bookstore.models.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -29,7 +31,12 @@ public class BookController {
         return bookService.bookInsert(book);
     }
 
+    @ApiOperation(value = "This api si to fetch perticular book details")
     @GetMapping(value = "/{bookId}")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully fetched book"),
+            @ApiResponse(code = 204, message = "could not find book"),
+    })
     public ResponseEntity getBook(@PathVariable String bookId){
         ResponseEntity<Response> bookDto = bookService.bookGet(bookId);
         return new ResponseEntity(Response.builder().body(bookDto).status(200).message("Fetched successfully")
