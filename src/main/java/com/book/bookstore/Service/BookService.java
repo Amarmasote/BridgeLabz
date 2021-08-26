@@ -9,8 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 public interface BookService {
 
-    public ResponseEntity<Response> bookInsert(Book book);
-    public ResponseEntity<Response> bookGet(String bookId);
-    public ResponseEntity bookUpdate(Book book);
-    public ResponseEntity bookRemove(String bookId);
+    public Response bookInsert(Book book);
+    public Response bookGet(String bookId);
+    public Response bookUpdate(Book book);
+    public Response bookRemove(String bookId);
+    public Response getAllBooks(int pageNo, int pageSize, String orderBy);
 }
